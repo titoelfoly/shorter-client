@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "aws-cli": "^0.0.2",
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "react": "^17.0.2",
@@ -23,6 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "deploy": "react-scripts build && aws s3 rm s3://shorter-client/ --recursive && aws s3 sync ./build s3://shorter-client/ --acl public-read",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

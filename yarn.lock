@@ -2661,6 +2661,22 @@
     "postcss" "^7.0.32"
     "postcss-value-parser" "^4.1.0"
 
+"aws-cli@^0.0.2":
+  "integrity" "sha1-AHI8ki7ICeqsJ/sq5EDFuOgHoY4="
+  "resolved" "https://registry.npmjs.org/aws-cli/-/aws-cli-0.0.2.tgz"
+  "version" "0.0.2"
+  dependencies:
+    "aws-sdk" "~2.0.0-rc13"
+    "operetta" "0.0.5"
+
+"aws-sdk@~2.0.0-rc13":
+  "integrity" "sha1-5yzx/caQFb2f0r3z07iMFlB9Jo4="
+  "resolved" "https://registry.npmjs.org/aws-sdk/-/aws-sdk-2.0.31.tgz"
+  "version" "2.0.31"
+  dependencies:
+    "xml2js" "0.2.6"
+    "xmlbuilder" "0.4.2"
+
 "aws-sign2@~0.7.0":
   "integrity" "sha1-tG6JCTSpWR8tL2+G1+ap8bP+dqg="
   "resolved" "https://registry.npmjs.org/aws-sign2/-/aws-sign2-0.7.0.tgz"
@@ -8110,6 +8126,11 @@
     "is-docker" "^2.0.0"
     "is-wsl" "^2.1.1"
 
+"operetta@0.0.5":
+  "integrity" "sha1-FIKMl+65E+KqhdHR05qJJpWOVVY="
+  "resolved" "https://registry.npmjs.org/operetta/-/operetta-0.0.5.tgz"
+  "version" "0.0.5"
+
 "opn@^5.5.0":
   "integrity" "sha512-PqHpggC9bLV0VeWcdKhkpxY+3JTzetLSqTCWL/z/tFIbI6G8JCjondXklT1JinczLz2Xib62sSp0T/gKT4KksA=="
   "resolved" "https://registry.npmjs.org/opn/-/opn-5.5.0.tgz"
@@ -9521,7 +9542,7 @@
   "resolved" "https://registry.npmjs.org/react-refresh/-/react-refresh-0.8.3.tgz"
   "version" "0.8.3"
 
-"react-router-dom@^5.2.0":
+"react-router-dom@^5.1.2":
   "integrity" "sha512-gxAmfylo2QUjcwxI63RhQ5G85Qqt4voZpUXSEqCwykV0baaOTQDR1f0PmY8AELqIyVc0NEZUj0Gov5lNGcXgsA=="
   "resolved" "https://registry.npmjs.org/react-router-dom/-/react-router-dom-5.2.0.tgz"
   "version" "5.2.0"
@@ -10184,6 +10205,11 @@
   "integrity" "sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw=="
   "resolved" "https://registry.npmjs.org/sax/-/sax-1.2.4.tgz"
   "version" "1.2.4"
+
+"sax@0.4.2":
+  "integrity" "sha1-OfO2AXM9a+yXEFskKipA/Wl4rDw="
+  "resolved" "https://registry.npmjs.org/sax/-/sax-0.4.2.tgz"
+  "version" "0.4.2"
 
 "saxes@^5.0.0":
   "integrity" "sha512-5LBh1Tls8c9xgGjw3QrMwETmTMVk0oFgvrFSvWx62llR2hcEInrKNZ2GZCCuuy2lvWrdl5jhbpeqc5hRYKFOcw=="
@@ -12053,6 +12079,18 @@
   "integrity" "sha512-A5CUptxDsvxKJEU3yO6DuWBSJz/qizqzJKOMIfUJHETbBw/sFaDxgd6fxm1ewUaM0jZ444Fc5vC5ROYurg/4Pw=="
   "resolved" "https://registry.npmjs.org/xml-name-validator/-/xml-name-validator-3.0.0.tgz"
   "version" "3.0.0"
+
+"xml2js@0.2.6":
+  "integrity" "sha1-0gnE5N2h/JxFIUHvQcB39a399sQ="
+  "resolved" "https://registry.npmjs.org/xml2js/-/xml2js-0.2.6.tgz"
+  "version" "0.2.6"
+  dependencies:
+    "sax" "0.4.2"
+
+"xmlbuilder@0.4.2":
+  "integrity" "sha1-F3bWXz/brUcKCNhgTN6xxOVA/4M="
+  "resolved" "https://registry.npmjs.org/xmlbuilder/-/xmlbuilder-0.4.2.tgz"
+  "version" "0.4.2"
 
 "xmlchars@^2.2.0":
   "integrity" "sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw=="

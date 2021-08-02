@@ -6,47 +6,106 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
-import { getLink, redirect } from "./actions/shorterActions";
+import { getLink, redirect, makeBase } from "./actions/shorterActions";
 import { useHistory } from "react-router-dom";
 import MakeShorten from "./components/MakeShorten";
 import "./App.css";
+import Home from "./components/Home";
+import Login from "./components/layout/Login";
+import Register from "./components/layout/Register";
+import Navbar from "./components/layout/Navbar";
+import LinkList from "./components/LinkList";
+import SetAuthToken from "./utils/SetAuthToken";
 
+const userOS = () => {
+  if (window.navigator.userAgent.includes("Android")) {
+    return "Android";
+  } else if (window.navigator.userAgent.includes("iOS")) {
+    return "IOS";
+  } else {
+    return "Web";
+  }
+};
 const App = (props) => {
+  if (props.auth.isAuthenticated) {
+    let token = localStorage.getItem("token");
+    SetAuthToken(token);
+  }
   const [slug, setSlug] = useState("");
   const [link, setLink] = useState("/");
+  const [platform, setPlatform] = useState("/");
 
   const history = useHistory();
   useEffect(() => {
+    if (props.base === null) {
+      props.makeBase(window.location.href);
+    }
     setSlug(window.location.pathname);
+    setPlatform(userOS);
     if (props.shorter.links === null) {
       props.getLink(slug);
     }
     if (props.shorter.links !== null) {
-      setLink(props.shorter.links);
+      setLink(props.link);
     }
-    console.log(link, slug);
-  }, [props.shorter.links, slug, link, history]);
+  }, [slug, props.link, link, history, props.auth.isAuthenticated]);
 
   return (
     <Router>
       <Fragment>
-        {link !== "/" ? (
+        <Navbar></Navbar>
+        {props.link !== null && link !== "/" && platform === "Web" ? (
           // <RedirectTo link={link}></RedirectTo>
           <Route
             component={() => {
-              window.location.href = `https://www.amazon.com/?&tag=googleglobalp-20&ref=pd_sl_7nnedyywlk_e&adgrpid=82342659060&hvpone=&hvptwo=&hvadid=393493755082&hvpos=&hvnetw=g&hvrand=16568382319886883247&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=21468&hvtargid=kwd-10573980&hydadcr=2246_11061421&gclid=CjwKCAjwjJmIBhA4EiwAQdCbxsJf9Cqg6xY0c2Q9wEXkwj3sOg_EW0zN4UBActcCb_dh3rbaUJGVXhoC8lQQAvD_BwE`;
+              console.log(link);
+              window.location.href = link.web_link;
+              console.log("weblink", link.web_link);
+              // window.location.href = `http:w
+              //${link.web_link}/`;
+              s: return null;
+            }}
+          />
+        ) : props.slug === null && link !== "/" && platform === "Android" ? (
+          // <RedirectTo link={link}></RedirectTo>
+          <Route
+            component={() => {
+              window.location.href = link.android_link;
+              // window.location.href = `http:w
+              //${link.web_link}/`;
+              s: return null;
+            }}
+          />
+        ) : props.slug === null && link !== "/" && platform === "IOS" ? (
+          // <RedirectTo link={link}></RedirectTo>
+          <Route
+            component={() => {
+              window.location.href = link.ios_link;
               // window.location.href = `http:w
               //${link.web_link}/`;
               s: return null;
             }}
           />
         ) : (
-          <Route component={MakeShorten} />
+          <Fragment>
+            <Route component={Home} path="/" exact />
+            <Switch>
+              <Route compontn={Register} path="/register" exact />
+              <Route component={Login} path="/login" exact />
+              <Route component={LinkList} path="/links" exact />
+            </Switch>
+          </Fragment>
         )}
       </Fragment>
     </Router>
   );
 };
 
-const mapStateToProps = (state) => ({ shorter: state.shorter });
-export default connect(mapStateToProps, { getLink, redirect })(App);
+const mapStateToProps = (state) => ({
+  shorter: state.shorter,
+  auth: state.auth,
+  link: state.shorter.link,
+  base: state.shorter.base,
+  slug: state.shorter.slug,
+});
+export default connect(mapStateToProps, { getLink, redirect, makeBase })(App);

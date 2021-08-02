@@ -1,2 +1,15 @@
 export const GET_LINK = "GET_LINK";
 export const REDIRECT = "REDIRECT";
+export const ADD_LINK = "ADD_LINK";
+export const ADD_LINKS = "ADD_LINKS";
+export const SET_SLUG = "SET_SLUG";
+export const REGISTER_SUCCESS = "USER_REGISTER";
+export const REGISTER_FAIL = "REGISTER_FAIL";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAIL = "LOGIN_FAIL";
+export const USER_LOADED = "USER_LOADED";
+export const AUTH_ERROR = "AUTH_ERROR";
+export const LOGOUT = "LOGOUT";
+export const GET_LINKS = "GET_LINKS";
+export const MAKE_SHORTER = "MAKE_SHORTER";
+export const MAKE_BASE = "MAKE_BASE";
